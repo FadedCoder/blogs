@@ -13,6 +13,8 @@ categories:
 images: # when mode is one-by-one, images front matter works
   - image: M31_Andromeda_Galaxy.jpg
     caption: Andromeda Galaxy (M31). Taken with a remote telescope. Also, it's satellite galaxies, M32 and M110 are visible.
+  - image: M81_Bode_Galaxy.jpg
+    caption: Bode's Galaxy (M81) and Cigar Galaxy (M82). Taken with a remote telescope.
   - image: NOAA19_Earth.jpg
     caption: Earth captured through the NOAA19 weather satellite.
   - image: Moon_Dob.jpg
