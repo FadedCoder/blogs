@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://blog.sohamsen.me/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/categories/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/posts/hello-world/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/tags/helloworld/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/categories/miscellaneous/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/tags/miscellaneous/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/posts/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/tags/</loc>
+    <lastmod>2020-04-02T22:24:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/archive/</loc>
+    <lastmod>2020-04-02T21:45:51+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/gallery/earth-n-space/</loc>
+    <lastmod>2020-04-02T21:41:35+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/gallery/</loc>
+    <lastmod>2020-04-02T21:41:35+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/gallery/anime/</loc>
+    <lastmod>2020-04-02T21:41:14+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/tags/bitcoin/</loc>
+    <lastmod>2018-01-28T21:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/categories/cryptocurrency/</loc>
+    <lastmod>2018-01-28T21:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/tags/cryptocurrency/</loc>
+    <lastmod>2018-01-28T21:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/posts/mine-crypto-with-laptop/</loc>
+    <lastmod>2018-01-28T21:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/series/</loc>
+  </url>
+  
+</urlset>

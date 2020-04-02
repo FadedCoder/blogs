@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Galleries on Soham&#39;s Blog</title>
+    <link>https://blog.sohamsen.me/gallery/</link>
+    <description>Recent content in Galleries on Soham&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
+    <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
+    <copyright>©{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 02 Apr 2020 21:41:35 +0530</lastBuildDate>
+    
+        <atom:link href="https://blog.sohamsen.me/gallery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Earth N Space</title>
+        <link>https://blog.sohamsen.me/gallery/earth-n-space/</link>
+        <pubDate>Thu, 02 Apr 2020 21:41:35 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        <atom:modified>Thu, 02 Apr 2020 21:41:35 +0530</atom:modified>
+        <guid>https://blog.sohamsen.me/gallery/earth-n-space/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+      <item>
+        <title>Anime</title>
+        <link>https://blog.sohamsen.me/gallery/anime/</link>
+        <pubDate>Thu, 02 Apr 2020 21:41:14 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        <atom:modified>Thu, 02 Apr 2020 21:41:14 +0530</atom:modified>
+        <guid>https://blog.sohamsen.me/gallery/anime/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+        
+          
+            
+          
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

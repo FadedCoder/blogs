@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Miscellaneous on Soham&#39;s Blog</title>
+    <link>https://blog.sohamsen.me/categories/miscellaneous/</link>
+    <description>Recent content in Miscellaneous on Soham&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
+    <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
+    <copyright>©{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 02 Apr 2020 22:24:47 +0530</lastBuildDate>
+    
+        <atom:link href="https://blog.sohamsen.me/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Hello World 3.0&#43;1.0</title>
+        <link>https://blog.sohamsen.me/posts/hello-world/</link>
+        <pubDate>Thu, 02 Apr 2020 22:24:47 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        <atom:modified>Thu, 02 Apr 2020 22:24:47 +0530</atom:modified>
+        <guid>https://blog.sohamsen.me/posts/hello-world/</guid>
+        <description>Yes, this name is a rip off of Evangelion 3.0+1.0. No, unlike Eva 4.0, this post is not imaginary. Atleast as of April 2020. Eva 4.0 was supposed to release in June 2020 but corona :( Probably will get delayed to 2120.
+Why is this 4.0? How many blogs existed before?! Who killed them!? Side Note: ?! or !? is called the interrobang. Small things you learn everyday.
+I killed them. Now, before I get jailed or lynched, let me prove my innocence.
+The first blog I made was written using a custom markdown-to-static-using-python I made and &amp;hellip; well I learnt pretty quickly that reinventing the wheel is 9/10 times a bad idea.</description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+          
+            
+              <category>miscellaneous</category>
+            
+          
+            
+              <category>helloworld</category>
+            
+          
+        
+        
+          
+            
+              <category>Miscellaneous</category>
+            
+          
+        
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

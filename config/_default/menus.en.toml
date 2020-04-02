@@ -1,0 +1,21 @@
+[[main]]
+  identifier = "archive"
+  name = "Archive"
+  url = "archive"
+  weight = 1
+
+[[main]]
+  identifier = "gallery"
+  name = "Gallery"
+  url = "gallery"
+  weight = 3
+    
+[[main]]
+  parent = "gallery"
+  name = "Anime"
+  url = "gallery/anime"
+
+[[main]]
+  parent = "gallery"
+  name = "Earth & Space"
+  url = "gallery/earth-n-space"

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Posts on Soham&#39;s Blog</title>
+    <link>https://blog.sohamsen.me/posts/</link>
+    <description>Recent content in Posts on Soham&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
+    <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
+    <copyright>©{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 02 Apr 2020 22:24:47 +0530</lastBuildDate>
+    
+        <atom:link href="https://blog.sohamsen.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Hello World 3.0&#43;1.0</title>
+        <link>https://blog.sohamsen.me/posts/hello-world/</link>
+        <pubDate>Thu, 02 Apr 2020 22:24:47 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        <atom:modified>Thu, 02 Apr 2020 22:24:47 +0530</atom:modified>
+        <guid>https://blog.sohamsen.me/posts/hello-world/</guid>
+        <description>Yes, this name is a rip off of Evangelion 3.0+1.0. No, unlike Eva 4.0, this post is not imaginary. Atleast as of April 2020. Eva 4.0 was supposed to release in June 2020 but corona :( Probably will get delayed to 2120.
+Why is this 4.0? How many blogs existed before?! Who killed them!? Side Note: ?! or !? is called the interrobang. Small things you learn everyday.
+I killed them. Now, before I get jailed or lynched, let me prove my innocence.
+The first blog I made was written using a custom markdown-to-static-using-python I made and &amp;hellip; well I learnt pretty quickly that reinventing the wheel is 9/10 times a bad idea.</description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+          
+            
+              <category>miscellaneous</category>
+            
+          
+            
+              <category>helloworld</category>
+            
+          
+        
+        
+          
+            
+              <category>Miscellaneous</category>
+            
+          
+        
+        
+      </item>
+      
+      <item>
+        <title>Mining Crypto-Currencies in 2018 with a PC GPU (or laptop)</title>
+        <link>https://blog.sohamsen.me/posts/mine-crypto-with-laptop/</link>
+        <pubDate>Sun, 28 Jan 2018 21:00:00 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        <atom:modified>Sun, 28 Jan 2018 21:00:00 +0530</atom:modified>
+        <guid>https://blog.sohamsen.me/posts/mine-crypto-with-laptop/</guid>
+        <description>2020 Update: I left mining&amp;hellip;5 days after writing this blog post (I wrote this back in 2018). I earnt ~10 TZC, which, as of 2020 April, is approximately 0.01379 USD. Yes, value went down. Yes, a huge income. Current thoughts: If you can have cheap electricity and cheap hardware (both of which I don&amp;rsquo;t have), go mine! We all know that we cannot mine Bitcoins with a PC now, anymore, atleast until you don&amp;rsquo;t want to have something like this — New product: Heater that looks like a computer! However, BTC is not the only available crypto coin. There are</description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+          
+            
+              <category>cryptocurrency</category>
+            
+          
+            
+              <category>bitcoin</category>
+            
+          
+        
+        
+          
+            
+              <category>Cryptocurrency</category>
+            
+          
+        
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>
