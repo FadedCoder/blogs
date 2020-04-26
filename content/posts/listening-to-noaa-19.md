@@ -2,6 +2,12 @@
 title: "Listening to NOAA 19 With RTL-SDR"
 date: 2020-04-06T04:46:04+05:30
 draft: false
+tags:
+  - radio
+  - satellite
+  - noaa
+categories:
+ - Radio
 ---
 
 I recently got my hands on a RTL-SDR (I’m currently using NooElec SmarTEE), short for Software Defined Radio. Basically a tool which lets you hook up your PC to an external antenna, in layman’s term.

@@ -14,13 +14,67 @@
     <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
     <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
     <copyright>©{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Thu, 02 Apr 2020 22:24:47 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 19:59:05 +0530</lastBuildDate>
     
         <atom:link href="https://blog.sohamsen.me/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     
 
+      
+      <item>
+        <title>CTF Writeups</title>
+        <link>https://blog.sohamsen.me/categories/ctf-writeups/</link>
+        <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        
+        <guid>https://blog.sohamsen.me/categories/ctf-writeups/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>Housecat RTCP CTF</title>
+        <link>https://blog.sohamsen.me/categories/housecat-rtcp-ctf/</link>
+        <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        
+        <guid>https://blog.sohamsen.me/categories/housecat-rtcp-ctf/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>Radio</title>
+        <link>https://blog.sohamsen.me/categories/radio/</link>
+        <pubDate>Mon, 06 Apr 2020 04:46:04 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        
+        <guid>https://blog.sohamsen.me/categories/radio/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
       
       <item>
         <title>Miscellaneous</title>

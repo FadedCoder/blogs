@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>web-ctf on Soham&#39;s Blog</title>
+    <link>https://blog.sohamsen.me/tags/web-ctf/</link>
+    <description>Recent content in web-ctf on Soham&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
+    <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
+    <copyright>©{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sun, 26 Apr 2020 19:59:05 +0530</lastBuildDate>
+    
+        <atom:link href="https://blog.sohamsen.me/tags/web-ctf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+
+      
+      <item>
+        <title>Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup)</title>
+        <link>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</link>
+        <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        <atom:modified>Sun, 26 Apr 2020 19:59:05 +0530</atom:modified>
+        <guid>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</guid>
+        <description>The TL;DR of this challenge was SQL injection and overriding javascript (to skip the encrypt/decrypt functions).
+Challenge Challenge description:
+ My friend Bob likes sockets so much, he made his own blog to talk about them. Can you check it out and make sure that it&amp;rsquo;s secure like he assured me it is?
+Link
+ Solution JS Overriding Rule #1 of web CTFs: ALWAYS check robots.txt first! This time I found:
+User-Agent: * Disallow: /admin And in /admin there is a comment saying you need to use TOTP (Time Based OTP. Who does not use a TOTP for 2-factor authentication in 2020?</description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+          
+            
+              <category>web-ctf</category>
+            
+          
+            
+              <category>housecat-rtcp-ctf</category>
+            
+          
+        
+        
+          
+            
+              <category>CTF Writeups</category>
+            
+          
+            
+              <category>Housecat RTCP CTF</category>
+            
+          
+        
+        
+      </item>
+      
+
+    
+  </channel>
+</rss>

@@ -1577,6 +1577,60 @@ if (!doNotTrack) {
                 
   <article class="summary-card" data-ani="true">
   <header>
+    <h5 class="title h5"><a href='https://blog.sohamsen.me/posts/overriding-js-sql-injection/'> Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup)</a> </h5>
+    <h6 class="subtitle caption">
+      <time title="Written At" dir="ltr">📅Apr 26, 2020 </time> 
+       
+      <span title="Reading Time" dir="ltr"> &middot; ☕ 5 min read</span>
+      
+    </h6>
+  </header>
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+      The TL;DR of this challenge was SQL injection and overriding javascript (to skip the encrypt/decrypt functions).
+Challenge Challenge description:
+ My friend Bob likes sockets so much, he made his own blog to talk about them. Can you check it out and make sure that it&rsquo;s secure like he assured me it is?
+Link
+ Solution JS Overriding Rule #1 of web CTFs: ALWAYS check robots.txt first! This time I found:
+User-Agent: * Disallow: /admin And in /admin there is a comment saying you need to use TOTP (Time Based OTP. Who does not use a TOTP for 2-factor authentication in 2020?
+      
+    </div>
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-card" data-ani="true">
+  <header>
+    <h5 class="title h5"><a href='https://blog.sohamsen.me/posts/breaking-math-random/'> Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)</a> </h5>
+    <h6 class="subtitle caption">
+      <time title="Written At" dir="ltr">📅Apr 26, 2020 </time> 
+       
+      <span title="Reading Time" dir="ltr"> &middot; ☕ 3 min read</span>
+      
+    </h6>
+  </header>
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      
+      TL;DR? Here.
+PS: You need to do pip install z3-solver requests for this to work.
+Okay so a little confession: Before the CTF challenge, I didn&rsquo;t think much of Cryptographically Secure Pseudo Random Generators (CSPRNGS), and thought they were just for very high security purposes, like defence against a state level hacking agency. I thought normal PRNGs were enough for day-to-day purposes and no one could realistically break it.
+After this CTF&hellip;oh boy, it takes 30 mins to break PRNGs (the one used by Javascript in Chrome/Firefox) and I&rsquo;m never going to use those for security again. I should&rsquo;ve never&hellip;
+      
+    </div>
+    
+  </div>
+  <hr />
+</article>
+
+            
+                
+  <article class="summary-card" data-ani="true">
+  <header>
     <h5 class="title h5"><a href='https://blog.sohamsen.me/posts/listening-to-noaa-19/'> Listening to NOAA 19 With RTL-SDR</a> </h5>
     <h6 class="subtitle caption">
       <time title="Written At" dir="ltr">📅Apr 6, 2020 </time> 
@@ -1901,6 +1955,14 @@ The first blog I made was written using a custom markdown-to-static-using-python
             <ul class="sidebar-recent__ul">
                 
                     <li>
+                        <a href="/posts/overriding-js-sql-injection/" class="sidebar-recent__a p2">Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/posts/breaking-math-random/" class="sidebar-recent__a p2">Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)</a>
+                    </li>
+                
+                    <li>
                         <a href="/posts/listening-to-noaa-19/" class="sidebar-recent__a p2">Listening to NOAA 19 With RTL-SDR</a>
                     </li>
                 
@@ -1986,9 +2048,87 @@ The first blog I made was written using a custom markdown-to-static-using-python
         
         
             <span class="tag">
+                <a href="/tags/housecat-rtcp-ctf/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        housecat-rtcp-ctf
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
                 <a href="/tags/miscellaneous/" class="is-tags taxo__link" data-dir="ltr">
                     <span class="taxo__text">
                         miscellaneous
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/miscellaneous-ctf/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        miscellaneous-ctf
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/noaa/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        noaa
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/radio/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        radio
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/satellite/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        satellite
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/tags/web-ctf/" class="is-tags taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        web-ctf
                     </span>
                     <span class="taxo__num" dir="auto">
                         1
@@ -2024,9 +2164,48 @@ The first blog I made was written using a custom markdown-to-static-using-python
         
         
             <span class="tag">
+                <a href="/categories/ctf-writeups/" class="is-categories taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        CTF Writeups
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/categories/housecat-rtcp-ctf/" class="is-categories taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        Housecat RTCP CTF
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        2
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
                 <a href="/categories/miscellaneous/" class="is-categories taxo__link" data-dir="ltr">
                     <span class="taxo__text">
                         Miscellaneous
+                    </span>
+                    <span class="taxo__num" dir="auto">
+                        1
+                    </span>
+                </a>
+            </span>
+        
+        
+        
+            <span class="tag">
+                <a href="/categories/radio/" class="is-categories taxo__link" data-dir="ltr">
+                    <span class="taxo__text">
+                        Radio
                     </span>
                     <span class="taxo__num" dir="auto">
                         1
