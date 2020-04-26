@@ -32,7 +32,7 @@ Anyway, let's get started!
 
 So, there was this [challenge](http://challs.houseplant.riceteacatpanda.wtf:30006/) where you had to enter 5 numbers between 1 to 1000 and the server would match these numbers with 5 randomly generated ones. It was sending a POST request:
 
-```
+``` bash
 POST http://challs.houseplant.riceteacatpanda.wtf:30006/guess
 Content-Type: application/json
 Data: [1,2,3,4,5]
@@ -51,7 +51,7 @@ I came across [XorShift128Plus](https://github.com/TACIXAT/XorShift128Plus) pred
 
 So first I got 2 random numbers from the site using CURL (1 for using as a generation seed and one for validation):
 
-```
+``` bash
 $ curl 'http://challs.houseplant.riceteacatpanda.wtf:30006/guess' -H 'Content-Type: application/json' --data '[2,2,2,2,2]' & curl 'http://challs.houseplant.riceteacatpanda.wtf:30006/guess' -H 'Content-Type: application/json' --data '[2,2,2,2,2]'
 
 {"results":[858.7939810434016,511.14241319962207,251.7950653388974,371.5915221535004,262.29409707684704]}{"results":[862.676114246725,526.9341585672347,396.08207314621023,634.2906066568407,603.2069164482145]}
@@ -59,23 +59,23 @@ $ curl 'http://challs.houseplant.riceteacatpanda.wtf:30006/guess' -H 'Content-Ty
 
 [The original code](https://github.com/TACIXAT/XorShift128Plus/blob/master/xs128p.py#L147) required the numbers to be in 0-1 range so I divided all numbers by 1000:
 
-```
+``` python
 dubs = [858.7939810434016,511.14241319962207,251.7950653388974,371.5915221535004,262.29409707684704]
 dubs = [i/1000 for i in dubs]
 validation_numbers = [862.676114246725,526.9341585672347,396.08207314621023,634.2906066568407,603.2069164482145]
 ```
 It worked with the default browser config (Chrome) but there was another issue in the code, that the first generated number (862.676114246725 in this case) was getting skipped. It was relatively easy to fix, on [line 189](https://github.com/TACIXAT/XorShift128Plus/blob/master/xs128p.py#L189), changed `generated = []` to:
 
-```
+``` python
 generated = [to_double(browser, state0 & MASK)]
 ```
 After it's generated, I had to remultiply the numbers by 1000 by using:
-```
+``` python
 generated = [i*1000 for i in generated]
 ```
 Now, I did some `print` statements to check if validation numbers were in `generated`, and voila! It worked.
 
-```
+``` python
 print(generated)
 print([i in generated for i in validation_numbers])
 # prints True if the number is in generated, else False. 5 True means everything is working!
@@ -83,7 +83,7 @@ print([i in generated for i in validation_numbers])
 
 Now I had to just add in `requests` and automate it, and print the flag. It was relatively simple:
 
-```
+``` python
 dubs = requests.post(
     "http://challs.houseplant.riceteacatpanda.wtf:30006/guess",
     json=[1,2,3,4,5]).json()['results']

