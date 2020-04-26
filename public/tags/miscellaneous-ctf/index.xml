@@ -23,11 +23,11 @@
 
       
       <item>
-        <title>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)</title>
+        <title>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)</title>
         <link>https://blog.sohamsen.me/posts/breaking-math-random/</link>
         <pubDate>Sun, 26 Apr 2020 19:07:36 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Sun, 26 Apr 2020 19:07:36 +0530</atom:modified>
+        <atom:modified>Mon, 27 Apr 2020 00:37:25 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/breaking-math-random/</guid>
         <description>TL;DR? Here.
 PS: You need to do pip install z3-solver requests for this to work.

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup) – Soham&#39;s Blog</title>
+    <title>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto) – Soham&#39;s Blog</title>
     
 
 
@@ -1219,14 +1219,14 @@
 <meta name="keywords" content="miscellaneous-ctf,housecat-rtcp-ctf">
 
 <meta name="created" content="2020-04-26T19:07:36&#43;0530">
-<meta name="modified" content="2020-04-26T19:07:36&#43;0530">
+<meta name="modified" content="2020-04-27T00:37:25&#43;0530">
 <meta property="article:published_time" content="2020-04-26T19:07:36&#43;0530">
 
 <meta name="author" content="Soham Sen">
 
 
 <meta property="og:site_name" content="Soham&#39;s Blog">
-<meta property="og:title" content="Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)">
+<meta property="og:title" content="Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)">
 <meta property="og:url" content="https://blog.sohamsen.me/posts/breaking-math-random/">
 <meta property="og:type" content="article">
 <meta property="og:description" content="Blog of Soham Sen. An Amateur Astronomer/Radio Enthusiast/Programmer/Tech Guy/Anime Lover/CTF Writeups.">
@@ -1253,9 +1253,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "headline": "Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)",
+    "headline": "Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)",
     "datePublished": "2020-04-26T19:07:36+05:30",
-    "dateModified": "2020-04-26T19:07:36+05:30",
+    "dateModified": "2020-04-27T00:37:25+05:30",
     "url" : "https://blog.sohamsen.me/posts/breaking-math-random/",
     "description": "TL;DR? Here. PS: You need to do pip install z3-solver requests for this to work. Okay so a little confession: Before the CTF challenge, I didn\u0026rsquo;t think much of …",
     "keywords": ["miscellaneous-ctf","housecat-rtcp-ctf"],
@@ -1557,7 +1557,7 @@ if (!doNotTrack) {
   
   <li  class="is-active" >
     
-      <span>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)</span>
+      <span>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)</span>
     
   </li>
   
@@ -1569,11 +1569,13 @@ if (!doNotTrack) {
   <div class="single ">
     <div class="single__nojs">This page looks best with JavaScript enabled</div>
     <script>document.querySelector('.single').classList.remove('hide'); document.querySelector('.single__nojs').classList.add('hide');</script>
-    <h2 class="single__title" data-ani="true">Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)</h2>
+    <h2 class="single__title" data-ani="true">Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)</h2>
     <div class="single__meta">
       
 <div class="single__infos">
   <time class="single__info" title="Written At">📅&nbsp;Apr 26, 2020 </time>
+  
+  &nbsp;&middot;&nbsp; <time class="single__info" title="Modified At"> 📝&nbsp;Apr 27, 2020 </time>
   
   &nbsp;&middot;&nbsp; <span class="single__info" title="Reading Time"> ☕&nbsp;3&nbsp;min read </span>
   
@@ -1602,7 +1604,8 @@ if (!doNotTrack) {
 <p>After this CTF&hellip;oh boy, it takes 30 mins to break PRNGs (the one used by Javascript in Chrome/Firefox) and I&rsquo;m never going to use those for security again. I should&rsquo;ve never&hellip;</p>
 <p>Anyway, let&rsquo;s get started!</p>
 <h2 id="challenge">Challenge</h2>
-<p>Challenge description:</p>
+<p><strong>Challenge Name: JS Lotto</strong></p>
+<p><strong>Challenge Description:</strong></p>
 <blockquote>
 <p>I found this lotto website called JS Lotto. Wanna test your luck? I heard if you guess all 5 numbers correctly, you can win a flag!<br />
 <a href="http://challs.houseplant.riceteacatpanda.wtf:30006/">Link</a></p>
@@ -1643,7 +1646,8 @@ z = requests.post(
     &quot;http://challs.houseplant.riceteacatpanda.wtf:30006/guess&quot;,
     json=[int(i) for i in generated[:5]]).json()
 print(z)
-</code></pre><h2 id="conclusion">Conclusion</h2>
+</code></pre><p>Flag is: <code>rtcp{th3_h0us3_d1dnt_w1n_th15_t1m3_5bcbf4}</code>. GGWP.</p>
+<h2 id="conclusion">Conclusion</h2>
 <p><strong>Note:</strong> It may not always work since the requests have to be consecutive. A fast internet will greatly help.</p>
 <p>Here is the full code on <a href="https://gist.github.com/FadedCoder/b7f23039e8933bcc07d0dc61da093b29">GitHub Gist</a>. Ask me in the comments for any issues!</p>
 <p>It was a fun challenge and it made me realize: NEVER use non-cryptographically secure PRNGs for ANYTHING related to security. Thanks jammy for the challenge!</p>
@@ -1835,7 +1839,7 @@ print(z)
     <div class="grow"></div>
     
       <a href="https://blog.sohamsen.me/posts/overriding-js-sql-injection/" class="pagination-single__right">      
-        <div class="pagination-single__right-title">Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup)</div>
+        <div class="pagination-single__right-title">Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup: Blog from the future)</div>
         <div class="pagination-single__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/></svg>
         </div>

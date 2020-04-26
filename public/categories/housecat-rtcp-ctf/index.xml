@@ -23,14 +23,15 @@
 
       
       <item>
-        <title>Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup)</title>
+        <title>Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup: Blog from the future)</title>
         <link>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</link>
         <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Sun, 26 Apr 2020 19:59:05 +0530</atom:modified>
+        <atom:modified>Mon, 27 Apr 2020 00:37:25 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</guid>
         <description>The TL;DR of this challenge was SQL injection and overriding javascript (to skip the encrypt/decrypt functions).
-Challenge Challenge description:
+Challenge Challenge Name: Blog from the future
+Challenge Description:
  My friend Bob likes sockets so much, he made his own blog to talk about them. Can you check it out and make sure that it&amp;rsquo;s secure like he assured me it is?
 Link
  Solution JS Overriding Rule #1 of web CTFs: ALWAYS check robots.txt first! This time I found:
@@ -66,11 +67,11 @@ User-Agent: * Disallow: /admin And in /admin there is a comment saying you need 
       </item>
       
       <item>
-        <title>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)</title>
+        <title>Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)</title>
         <link>https://blog.sohamsen.me/posts/breaking-math-random/</link>
         <pubDate>Sun, 26 Apr 2020 19:07:36 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Sun, 26 Apr 2020 19:07:36 +0530</atom:modified>
+        <atom:modified>Mon, 27 Apr 2020 00:37:25 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/breaking-math-random/</guid>
         <description>TL;DR? Here.
 PS: You need to do pip install z3-solver requests for this to work.

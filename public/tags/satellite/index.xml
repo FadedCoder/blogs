@@ -27,7 +27,7 @@
         <link>https://blog.sohamsen.me/posts/listening-to-noaa-19/</link>
         <pubDate>Mon, 06 Apr 2020 04:46:04 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Fri, 03 Apr 2020 05:05:44 +0530</atom:modified>
+        <atom:modified>Mon, 27 Apr 2020 00:37:25 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/listening-to-noaa-19/</guid>
         <description>I recently got my hands on a RTL-SDR (I’m currently using NooElec SmarTEE), short for Software Defined Radio. Basically a tool which lets you hook up your PC to an external antenna, in layman’s term.
 And oh boy, the things you can do with it is beyond words, literally. Radio waves are not sent with words&amp;hellip; Bad joke. Sorry.

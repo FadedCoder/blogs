@@ -1,5 +1,5 @@
 ---
-title: "Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup)"
+title: "Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)"
 date: 2020-04-26T19:07:36+05:30
 draft: false
 categories:
@@ -23,8 +23,9 @@ Anyway, let's get started!
 
 ## Challenge
 
+**Challenge Name: JS Lotto**
 
-Challenge description:
+**Challenge Description:**
 
 > I found this lotto website called JS Lotto. Wanna test your luck? I heard if you guess all 5 numbers correctly, you can win a flag!
 [Link](http://challs.houseplant.riceteacatpanda.wtf:30006/)
@@ -93,6 +94,8 @@ z = requests.post(
     json=[int(i) for i in generated[:5]]).json()
 print(z)
 ```
+
+Flag is: `rtcp{th3_h0us3_d1dnt_w1n_th15_t1m3_5bcbf4}`. GGWP.
 
 ## Conclusion
 

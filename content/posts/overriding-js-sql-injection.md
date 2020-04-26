@@ -1,5 +1,5 @@
 ---
-title: "Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup)"
+title: "Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup: Blog from the future)"
 date: 2020-04-26T19:59:05+05:30
 draft: false
 categories:
@@ -14,7 +14,9 @@ The TL;DR of this challenge was SQL injection and overriding javascript (to skip
 
 ## Challenge
 
-Challenge description:
+**Challenge Name:** Blog from the future
+
+**Challenge Description:**
 
 > My friend Bob likes sockets so much, he made his own blog to talk about them. Can you check it out and make sure that it's secure like he assured me it is?
 [Link](http://challs.houseplant.riceteacatpanda.wtf:30003)
@@ -47,6 +49,7 @@ While overriding, `console.log()` is your friend. Use it everywhere and see what
 const e = JSON.parse(i.utils.utf8.fromBytes(i.padding.pkcs7.strip(u.decrypt(t))));
 console.log(e);
 ```
+![Console Output](/images/console-output-hprtcpctf.png)
 
 Cool! Now it printed everything! Now, I had to modify the sent requests. Just below the above line, there was:
 ```
@@ -113,6 +116,8 @@ __proto__: Array(0)
 I took the TOTP secret key for `bob` and plugged it into a [TOTP Generator](https://totp.danhersam.com/).
 
 On the admin page, I Inspect-Elemented, and uncommented the TOTP input field and deleted password field. After entering the username (`bob`) and the generated TOTP, I was able to log in and get the flag.
+
+Flag is: `rtcp{WebSock3t5_4r3_SQLi_vu1n3r4b1e_t00_bacfe0}`. GGWP.
 
 ## Conclusion
 
