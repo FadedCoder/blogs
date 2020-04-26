@@ -27,7 +27,7 @@
         <link>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</link>
         <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Mon, 27 Apr 2020 00:37:25 +0530</atom:modified>
+        <atom:modified>Mon, 27 Apr 2020 01:45:51 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</guid>
         <description>The TL;DR of this challenge was SQL injection and overriding javascript (to skip the encrypt/decrypt functions).
 Challenge Challenge Name: Blog from the future

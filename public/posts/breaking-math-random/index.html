@@ -1219,7 +1219,7 @@
 <meta name="keywords" content="miscellaneous-ctf,housecat-rtcp-ctf">
 
 <meta name="created" content="2020-04-26T19:07:36&#43;0530">
-<meta name="modified" content="2020-04-27T00:37:25&#43;0530">
+<meta name="modified" content="2020-04-27T01:45:51&#43;0530">
 <meta property="article:published_time" content="2020-04-26T19:07:36&#43;0530">
 
 <meta name="author" content="Soham Sen">
@@ -1255,7 +1255,7 @@
     "@type": "WebPage",
     "headline": "Breaking Math.random() and Predicting Random Numbers (Housecat RTCP CTF Writeup: JS Lotto)",
     "datePublished": "2020-04-26T19:07:36+05:30",
-    "dateModified": "2020-04-27T00:37:25+05:30",
+    "dateModified": "2020-04-27T01:45:51+05:30",
     "url" : "https://blog.sohamsen.me/posts/breaking-math-random/",
     "description": "TL;DR? Here. PS: You need to do pip install z3-solver requests for this to work. Okay so a little confession: Before the CTF challenge, I didn\u0026rsquo;t think much of …",
     "keywords": ["miscellaneous-ctf","housecat-rtcp-ctf"],
@@ -1611,42 +1611,109 @@ if (!doNotTrack) {
 <a href="http://challs.houseplant.riceteacatpanda.wtf:30006/">Link</a></p>
 </blockquote>
 <p>So, there was this <a href="http://challs.houseplant.riceteacatpanda.wtf:30006/">challenge</a> where you had to enter 5 numbers between 1 to 1000 and the server would match these numbers with 5 randomly generated ones. It was sending a POST request:</p>
-<pre><code>POST http://challs.houseplant.riceteacatpanda.wtf:30006/guess
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">POST http://challs.houseplant.riceteacatpanda.wtf:30006/guess
 Content-Type: application/json
-Data: [1,2,3,4,5]
+Data: <span class="o">[</span>1,2,3,4,5<span class="o">]</span>
 
-Returns: {&quot;results&quot;:[858.7939810434016,511.14241319962207,251.7950653388974,371.5915221535004,262.29409707684704]}
-</code></pre><h2 id="solution">Solution</h2>
+Returns: <span class="o">{</span><span class="s2">&#34;results&#34;</span>:<span class="o">[</span>858.7939810434016,511.14241319962207,251.7950653388974,371.5915221535004,262.29409707684704<span class="o">]}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="solution">Solution</h2>
 <p>After a bit of fiddling, I realized I had to break the random number generator and predict the numbers in future to win this challenge. From the name (JS Lotto) I guessed the backend was in JavaScript and <code>Math.random()</code> was being used (cause this won&rsquo;t be a break-random() anymore if a CSPRNG was being used).</p>
 <p>After a bit of googling, I came to know XORShift128+ is used in JavaScript for generating random numbers. And <a href="https://lemire.me/blog/2017/08/22/cracking-random-number-generators-xoroshiro128/">it can be broken by a high-schooler</a>. Which I am. Lucky.</p>
 <p>I came across <a href="https://github.com/TACIXAT/XorShift128Plus">XorShift128Plus</a> predictor Python code on Github which had the code for Google Chrome and Firefox based JS engines. (Safari is there too but broken).</p>
 <p>So first I got 2 random numbers from the site using CURL (1 for using as a generation seed and one for validation):</p>
-<pre><code>$ curl 'http://challs.houseplant.riceteacatpanda.wtf:30006/guess' -H 'Content-Type: application/json' --data '[2,2,2,2,2]' &amp; curl 'http://challs.houseplant.riceteacatpanda.wtf:30006/guess' -H 'Content-Type: application/json' --data '[2,2,2,2,2]'
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ curl <span class="s1">&#39;http://challs.houseplant.riceteacatpanda.wtf:30006/guess&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data <span class="s1">&#39;[2,2,2,2,2]&#39;</span> <span class="p">&amp;</span> curl <span class="s1">&#39;http://challs.houseplant.riceteacatpanda.wtf:30006/guess&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data <span class="s1">&#39;[2,2,2,2,2]&#39;</span>
 
-{&quot;results&quot;:[858.7939810434016,511.14241319962207,251.7950653388974,371.5915221535004,262.29409707684704]}{&quot;results&quot;:[862.676114246725,526.9341585672347,396.08207314621023,634.2906066568407,603.2069164482145]}
-</code></pre><p><a href="https://github.com/TACIXAT/XorShift128Plus/blob/master/xs128p.py#L147">The original code</a> required the numbers to be in 0-1 range so I divided all numbers by 1000:</p>
-<pre><code>dubs = [858.7939810434016,511.14241319962207,251.7950653388974,371.5915221535004,262.29409707684704]
-dubs = [i/1000 for i in dubs]
-validation_numbers = [862.676114246725,526.9341585672347,396.08207314621023,634.2906066568407,603.2069164482145]
-</code></pre><p>It worked with the default browser config (Chrome) but there was another issue in the code, that the first generated number (862.676114246725 in this case) was getting skipped. It was relatively easy to fix, on <a href="https://github.com/TACIXAT/XorShift128Plus/blob/master/xs128p.py#L189">line 189</a>, changed <code>generated = []</code> to:</p>
-<pre><code>generated = [to_double(browser, state0 &amp; MASK)]
-</code></pre><p>After it&rsquo;s generated, I had to remultiply the numbers by 1000 by using:</p>
-<pre><code>generated = [i*1000 for i in generated]
-</code></pre><p>Now, I did some <code>print</code> statements to check if validation numbers were in <code>generated</code>, and voila! It worked.</p>
-<pre><code>print(generated)
-print([i in generated for i in validation_numbers])
-# prints True if the number is in generated, else False. 5 True means everything is working!
-</code></pre><p>Now I had to just add in <code>requests</code> and automate it, and print the flag. It was relatively simple:</p>
-<pre><code>dubs = requests.post(
-    &quot;http://challs.houseplant.riceteacatpanda.wtf:30006/guess&quot;,
-    json=[1,2,3,4,5]).json()['results']
-... # After generation is done
-# Had to send integers
-z = requests.post(
-    &quot;http://challs.houseplant.riceteacatpanda.wtf:30006/guess&quot;,
-    json=[int(i) for i in generated[:5]]).json()
-print(z)
-</code></pre><p>Flag is: <code>rtcp{th3_h0us3_d1dnt_w1n_th15_t1m3_5bcbf4}</code>. GGWP.</p>
+<span class="o">{</span><span class="s2">&#34;results&#34;</span>:<span class="o">[</span>858.7939810434016,511.14241319962207,251.7950653388974,371.5915221535004,262.29409707684704<span class="o">]}{</span><span class="s2">&#34;results&#34;</span>:<span class="o">[</span>862.676114246725,526.9341585672347,396.08207314621023,634.2906066568407,603.2069164482145<span class="o">]}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://github.com/TACIXAT/XorShift128Plus/blob/master/xs128p.py#L147">The original code</a> required the numbers to be in 0-1 range so I divided all numbers by 1000:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dubs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">858.7939810434016</span><span class="p">,</span><span class="mf">511.14241319962207</span><span class="p">,</span><span class="mf">251.7950653388974</span><span class="p">,</span><span class="mf">371.5915221535004</span><span class="p">,</span><span class="mf">262.29409707684704</span><span class="p">]</span>
+<span class="n">dubs</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">1000</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dubs</span><span class="p">]</span>
+<span class="n">validation_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">862.676114246725</span><span class="p">,</span><span class="mf">526.9341585672347</span><span class="p">,</span><span class="mf">396.08207314621023</span><span class="p">,</span><span class="mf">634.2906066568407</span><span class="p">,</span><span class="mf">603.2069164482145</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It worked with the default browser config (Chrome) but there was another issue in the code, that the first generated number (862.676114246725 in this case) was getting skipped. It was relatively easy to fix, on <a href="https://github.com/TACIXAT/XorShift128Plus/blob/master/xs128p.py#L189">line 189</a>, changed <code>generated = []</code> to:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">generated</span> <span class="o">=</span> <span class="p">[</span><span class="n">to_double</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">state0</span> <span class="o">&amp;</span> <span class="n">MASK</span><span class="p">)]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>After it&rsquo;s generated, I had to remultiply the numbers by 1000 by using:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">generated</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">1000</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">generated</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now, I did some <code>print</code> statements to check if validation numbers were in <code>generated</code>, and voila! It worked.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">generated</span><span class="p">)</span>
+<span class="k">print</span><span class="p">([</span><span class="n">i</span> <span class="ow">in</span> <span class="n">generated</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">validation_numbers</span><span class="p">])</span>
+<span class="c1"># prints True if the number is in generated, else False. 5 True means everything is working!</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now I had to just add in <code>requests</code> and automate it, and print the flag. It was relatively simple:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dubs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&#34;http://challs.houseplant.riceteacatpanda.wtf:30006/guess&#34;</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">]</span>
+<span class="o">...</span> <span class="c1"># After generation is done</span>
+<span class="c1"># Had to send integers</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&#34;http://challs.houseplant.riceteacatpanda.wtf:30006/guess&#34;</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">generated</span><span class="p">[:</span><span class="mi">5</span><span class="p">]])</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Flag is: <code>rtcp{th3_h0us3_d1dnt_w1n_th15_t1m3_5bcbf4}</code>. GGWP.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p><strong>Note:</strong> It may not always work since the requests have to be consecutive. A fast internet will greatly help.</p>
 <p>Here is the full code on <a href="https://gist.github.com/FadedCoder/b7f23039e8933bcc07d0dc61da093b29">GitHub Gist</a>. Ask me in the comments for any issues!</p>
