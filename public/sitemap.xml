@@ -48,11 +48,6 @@
   </url>
   
   <url>
-    <loc>https://blog.sohamsen.me/tags/miscellaneous/</loc>
-    <lastmod>2020-04-27T01:45:51+05:30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.sohamsen.me/tags/miscellaneous-ctf/</loc>
     <lastmod>2020-04-27T01:45:51+05:30</lastmod>
   </url>
@@ -94,6 +89,11 @@
   
   <url>
     <loc>https://blog.sohamsen.me/categories/miscellaneous/</loc>
+    <lastmod>2020-04-03T05:05:44+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.sohamsen.me/tags/miscellaneous/</loc>
     <lastmod>2020-04-03T05:05:44+05:30</lastmod>
   </url>
   
