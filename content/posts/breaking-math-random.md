@@ -4,7 +4,6 @@ date: 2020-04-26T19:07:36+05:30
 draft: false
 categories:
  - CTF Writeups
- - Housecat RTCP CTF
 tags:
  - miscellaneous-ctf
  - housecat-rtcp-ctf
