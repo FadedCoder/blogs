@@ -14,7 +14,7 @@
     <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
     <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
     <copyright>© 2020, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 26 Apr 2020 19:59:05 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 15:50:55 +0530</lastBuildDate>
     
         <atom:link href="https://blog.sohamsen.me/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -23,12 +23,12 @@
 
       
       <item>
-        <title>CTF Writeups</title>
-        <link>https://blog.sohamsen.me/categories/ctf-writeups/</link>
-        <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
+        <title>Networking</title>
+        <link>https://blog.sohamsen.me/categories/networking/</link>
+        <pubDate>Sat, 18 Jul 2020 15:50:55 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
         
-        <guid>https://blog.sohamsen.me/categories/ctf-writeups/</guid>
+        <guid>https://blog.sohamsen.me/categories/networking/</guid>
         <description></description>
         
         <dc:creator>Soham Sen</dc:creator>
@@ -41,12 +41,12 @@
       </item>
       
       <item>
-        <title>Housecat RTCP CTF</title>
-        <link>https://blog.sohamsen.me/categories/housecat-rtcp-ctf/</link>
+        <title>CTF Writeups</title>
+        <link>https://blog.sohamsen.me/categories/ctf-writeups/</link>
         <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
         
-        <guid>https://blog.sohamsen.me/categories/housecat-rtcp-ctf/</guid>
+        <guid>https://blog.sohamsen.me/categories/ctf-writeups/</guid>
         <description></description>
         
         <dc:creator>Soham Sen</dc:creator>

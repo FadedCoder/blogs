@@ -27,7 +27,7 @@
         <link>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</link>
         <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Mon, 27 Apr 2020 01:45:51 +0530</atom:modified>
+        <atom:modified>Sat, 18 Jul 2020 17:18:41 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</guid>
         <description>The TL;DR of this challenge was SQL injection and overriding javascript (to skip the encrypt/decrypt functions).
 Challenge Challenge Name: Blog from the future
@@ -56,10 +56,6 @@ User-Agent: * Disallow: /admin And in /admin there is a comment saying you need 
           
             
               <category>CTF Writeups</category>
-            
-          
-            
-              <category>Housecat RTCP CTF</category>
             
           
         

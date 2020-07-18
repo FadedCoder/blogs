@@ -14,13 +14,67 @@
     <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
     <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
     <copyright>© 2020, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 26 Apr 2020 19:59:05 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 15:50:55 +0530</lastBuildDate>
     
         <atom:link href="https://blog.sohamsen.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     
 
+      
+      <item>
+        <title>openwrt</title>
+        <link>https://blog.sohamsen.me/tags/openwrt/</link>
+        <pubDate>Sat, 18 Jul 2020 15:50:55 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        
+        <guid>https://blog.sohamsen.me/tags/openwrt/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>tutorial</title>
+        <link>https://blog.sohamsen.me/tags/tutorial/</link>
+        <pubDate>Sat, 18 Jul 2020 15:50:55 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        
+        <guid>https://blog.sohamsen.me/tags/tutorial/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
+      
+      <item>
+        <title>wireguard</title>
+        <link>https://blog.sohamsen.me/tags/wireguard/</link>
+        <pubDate>Sat, 18 Jul 2020 15:50:55 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        
+        <guid>https://blog.sohamsen.me/tags/wireguard/</guid>
+        <description></description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+        
+        
+      </item>
       
       <item>
         <title>housecat-rtcp-ctf</title>

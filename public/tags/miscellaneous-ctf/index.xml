@@ -27,7 +27,7 @@
         <link>https://blog.sohamsen.me/posts/breaking-math-random/</link>
         <pubDate>Sun, 26 Apr 2020 19:07:36 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Mon, 27 Apr 2020 01:45:51 +0530</atom:modified>
+        <atom:modified>Sat, 18 Jul 2020 17:18:41 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/breaking-math-random/</guid>
         <description>TL;DR? Here.
 PS: You need to do pip install z3-solver requests for this to work.
@@ -53,10 +53,6 @@ After this CTF&amp;hellip;oh boy, it takes 30 mins to break PRNGs (the one used 
           
             
               <category>CTF Writeups</category>
-            
-          
-            
-              <category>Housecat RTCP CTF</category>
             
           
         

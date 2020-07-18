@@ -14,7 +14,7 @@
     <managingEditor>hi@sohamsen.me (Soham Sen)</managingEditor>
     <webMaster>hi@sohamsen.me (Soham Sen)</webMaster>
     <copyright>© 2020, All Rights Reserved</copyright>
-    <lastBuildDate>Sun, 26 Apr 2020 19:59:05 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 15:50:55 +0530</lastBuildDate>
     
         <atom:link href="https://blog.sohamsen.me/posts/index.xml" rel="self" type="application/rss+xml" />
     
@@ -23,11 +23,51 @@
 
       
       <item>
+        <title>Wireguard Client on OpenWRT Routers</title>
+        <link>https://blog.sohamsen.me/posts/wireguard-client-on-openwrt/</link>
+        <pubDate>Sat, 18 Jul 2020 15:50:55 +0530</pubDate>
+        <author>hi@sohamsen.me (Soham Sen)</author>
+        <atom:modified>Sat, 18 Jul 2020 17:18:16 +0530</atom:modified>
+        <guid>https://blog.sohamsen.me/posts/wireguard-client-on-openwrt/</guid>
+        <description>Why Wireguard? It&amp;rsquo;s 2020. Age of OpenVPN is over (atleast I hope). It&amp;rsquo;s too bulky and contains a lot of stuff that is not needed. Wireguard is simple, easy-to-setup, and fast.
+The Problem I have a dedicated server split into multiple VPS that I wanted to make available from my home network (not over the internet, mind you). This is mostly because I can access my server directly without having to expose all the services (SSH, databases, etc) to the public.
+Getting to the point, I had already set-up a wireguard connection between my desktop and the servers. There are plenty of tutorials for this available over the internet so I am not going to cover that here, follow whichever you like.</description>
+        
+        <dc:creator>Soham Sen</dc:creator>
+        
+        
+        
+        
+          
+            
+              <category>wireguard</category>
+            
+          
+            
+              <category>openwrt</category>
+            
+          
+            
+              <category>tutorial</category>
+            
+          
+        
+        
+          
+            
+              <category>Networking</category>
+            
+          
+        
+        
+      </item>
+      
+      <item>
         <title>Overriding JS to Perform SQL Injection (Housecat RTCP CTF Writeup: Blog from the future)</title>
         <link>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</link>
         <pubDate>Sun, 26 Apr 2020 19:59:05 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Mon, 27 Apr 2020 01:45:51 +0530</atom:modified>
+        <atom:modified>Sat, 18 Jul 2020 17:18:41 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/overriding-js-sql-injection/</guid>
         <description>The TL;DR of this challenge was SQL injection and overriding javascript (to skip the encrypt/decrypt functions).
 Challenge Challenge Name: Blog from the future
@@ -58,10 +98,6 @@ User-Agent: * Disallow: /admin And in /admin there is a comment saying you need 
               <category>CTF Writeups</category>
             
           
-            
-              <category>Housecat RTCP CTF</category>
-            
-          
         
         
       </item>
@@ -71,7 +107,7 @@ User-Agent: * Disallow: /admin And in /admin there is a comment saying you need 
         <link>https://blog.sohamsen.me/posts/breaking-math-random/</link>
         <pubDate>Sun, 26 Apr 2020 19:07:36 +0530</pubDate>
         <author>hi@sohamsen.me (Soham Sen)</author>
-        <atom:modified>Mon, 27 Apr 2020 01:45:51 +0530</atom:modified>
+        <atom:modified>Sat, 18 Jul 2020 17:18:41 +0530</atom:modified>
         <guid>https://blog.sohamsen.me/posts/breaking-math-random/</guid>
         <description>TL;DR? Here.
 PS: You need to do pip install z3-solver requests for this to work.
@@ -97,10 +133,6 @@ After this CTF&amp;hellip;oh boy, it takes 30 mins to break PRNGs (the one used 
           
             
               <category>CTF Writeups</category>
-            
-          
-            
-              <category>Housecat RTCP CTF</category>
             
           
         
