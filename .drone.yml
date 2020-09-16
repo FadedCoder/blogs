@@ -9,6 +9,7 @@ steps:
     hugo_version: 0.75.1
     buildFuture: true
     validate: true
+    extended: true
 
 - name: deploy
   image: appleboy/drone-scp
