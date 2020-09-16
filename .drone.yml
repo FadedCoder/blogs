@@ -1,3 +1,4 @@
+---
 kind: pipeline
 name: build
 
@@ -32,3 +33,8 @@ steps:
     - promote
     target:
     - production
+---
+kind: signature
+hmac: e13e70f68f881242856f2d53d0acc07381efcbcf76ef5788fcaa4b80508a607a
+
+...
