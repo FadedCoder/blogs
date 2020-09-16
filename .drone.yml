@@ -6,7 +6,7 @@ steps:
 - name: build
   image: plugins/hugo
   settings:
-    hugo_version: 0.74.3
+    hugo_version: 0.75.1
     buildFuture: true
     validate: true
 
