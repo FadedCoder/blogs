@@ -1,0 +1,31 @@
+stages:
+  - build
+
+build:
+  stage: build
+  image: registry.gitlab.com/pages/hugo:latest
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - hugo -F
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+  - apk update && apk add --no-cache openssh-client
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo "${SSH_PRIVATE_KEY_B64}" | base64 -d > ~/.ssh/id_rsa
+  - chmod 400 ~/.ssh/id_rsa
+  script:
+  - ssh-add ~/.ssh/id_rsa
+  - scp -o StrictHostKeyChecking=no -r public/* $SCP_DEPLOY_TARGET
+  only:
+  - master
