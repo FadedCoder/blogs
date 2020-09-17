@@ -4,7 +4,7 @@ stages:
 
 build:
   stage: build
-  image: registry.gitlab.com/pages/hugo:latest
+  image: registry.gitlab.com/pages/hugo/hugo_extended:latest
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
   script:
@@ -30,3 +30,4 @@ deploy:
   - scp -o StrictHostKeyChecking=no -r public/* $SCP_DEPLOY_TARGET
   only:
   - master
+  when: manual
