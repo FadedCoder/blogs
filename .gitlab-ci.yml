@@ -30,8 +30,8 @@ deploy:
   - echo "${SSH_PRIVATE_KEY_B64}" | base64 -d > ~/.ssh/id_rsa
   - chmod 400 ~/.ssh/id_rsa
   script:
-  - ssh-add ~/.ssh/id_rsa
-  - scp -o StrictHostKeyChecking=no -r public/* $SCP_DEPLOY_TARGET
+  - ssh-add -q ~/.ssh/id_rsa
+  - scp -q -o StrictHostKeyChecking=no -r public/* $SCP_DEPLOY_TARGET
   only:
   - master
   when: manual
