@@ -1,3 +1,6 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 stages:
   - build
   - deploy
@@ -5,9 +8,10 @@ stages:
 build:
   stage: build
   image: registry.gitlab.com/pages/hugo/hugo_extended:latest
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - apk add --update --no-cache git
   script:
+    - hugo version
     - hugo -F
   artifacts:
     paths:
@@ -31,3 +35,5 @@ deploy:
   only:
   - master
   when: manual
+  dependencies:
+    - build
