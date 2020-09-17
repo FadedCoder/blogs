@@ -1,6 +1,6 @@
 # blogs
 
-[![Build Status](https://drone.sohamsen.me/api/badges/GhostDev/blog/status.svg)](https://drone.sohamsen.me/GhostDev/blog)
+[![Pipeline Status](https://git.sohamsen.me/GhostDev/blog/badges/master/pipeline.svg)](https://git.sohamsen.me/GhostDev/blog)
 
 My blog. https://blog.sohamsen.me
 
