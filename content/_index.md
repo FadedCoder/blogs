@@ -6,9 +6,9 @@ header:
     paddingY: 0
     align: center
     title:
-      - Soham's Blog
+      - GhostPosts™
     subtitle:
-      - Just another blog on radio/astronomy/anime or plain ol' programming
+      - Just another blog by a ghost who posts when bored
     titleColor: 
     titleShadow: true
     titleFontSize: 44
