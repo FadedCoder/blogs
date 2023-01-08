@@ -4,6 +4,7 @@ variables:
 stages:
   - build
   - release
+  - deploy
 
 include:
   - project: 'infrastructure/ci-scripts'
@@ -35,20 +36,11 @@ release:image:
   only:
     - master
 
-# deploy:
-#   stage: deploy
-#   image: alpine:latest
-#   before_script:
-#   - apk update && apk add --no-cache openssh-client
-#   - eval $(ssh-agent -s)
-#   - mkdir -p ~/.ssh
-#   - chmod 700 ~/.ssh
-#   - echo "${SSH_PRIVATE_KEY_B64}" | base64 -d > ~/.ssh/id_rsa
-#   - chmod 400 ~/.ssh/id_rsa
-#   script:
-#   - ssh-add -q ~/.ssh/id_rsa
-#   - scp -q -o StrictHostKeyChecking=no -r public/* $SCP_DEPLOY_TARGET
-#   only:
-#   - master
-#   dependencies:
-#     - build
+deploy:
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  script:
+    - kubectl config get-contexts
+    # - kubectl config use-context path/to/agent/repository:agent-name
+    - kubectl get pods
