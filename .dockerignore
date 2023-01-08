@@ -1,0 +1,4 @@
+.gitlab-ci.yml
+.hugo_build.lock
+public/
+*.md
