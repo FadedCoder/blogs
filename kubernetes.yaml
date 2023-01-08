@@ -36,7 +36,7 @@ items:
               ports:
                 - containerPort: 80
           restartPolicy: Always
-  - apiVersion: apiVersion: networking.istio.io/v1alpha3
+  - apiVersion: networking.istio.io/v1alpha3
     kind: Gateway
     metadata:
       name: blog-sohamsen-me-gateway
