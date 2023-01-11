@@ -39,6 +39,7 @@ items:
                 app: blog-sohamsen-me
           containers:
             - image: registry.sohamsen.me/ghostdev/blog:latest
+              imagePullPolicy: Always
               name: blog-sohamsen-me
               ports:
                 - containerPort: 80
