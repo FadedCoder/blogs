@@ -41,7 +41,8 @@ release:image:
 deploy:
   extends: .deploy_kubernetes
   variables:
-    KUBERNETES_CONTEXT: GhostDev/blog:personal-blog
     KUBERNETES_NAMESPACE: prod
   only:
     - master
+  environment:
+    name: prod
