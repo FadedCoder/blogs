@@ -85,9 +85,9 @@ busuanziSitePV = true # site total page view count
 busuanziPagePV = true # post view count
 
 # comment
-enableComment = true
+enableComment = false
 disqus_shortname = "" 
-commento = true
+commento = false
 
 [gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
   owner = ""              # Your GitHub ID
@@ -135,8 +135,8 @@ commento = true
   email = "mailto:hi@sohamsen.me"
   phone = ""
   facebook = ""
-  twitter = ""
-  github = "https://github.com/FadedCoder/"
+  twitter = "https://twitter.com/Yureien/"
+  github = "https://github.com/Yureien/"
   stack-overflow = ""
   instagram = ""
   google-plus = ""
@@ -146,7 +146,7 @@ commento = true
   linkedin = ""
   pinterest = ""
   stack-exchange = ""
-  telegram = "https://t.me/RandomGhost/"
+  telegram = ""
   steam = "https://steamcommunity.com/id/one_random_ghost/"
   weibo = ""
   douban = ""
