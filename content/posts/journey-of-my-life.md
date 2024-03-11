@@ -9,7 +9,7 @@ tags:
  - personal
 ---
 
-Shoutout to [Chirag Ghosh's blog post](https://blog.chiragghosh.me/posts/fear-of-coding/) which gave me the motivation to make this post. Time for some 3 AM drunkposting and/or philosophy and/or introspection.
+Shoutout to [Chirag Ghosh's blog post](https://www.chiragghosh.dev/blog/fear-of-coding) which gave me the motivation to make this post. Time for some 3 AM drunkposting and/or philosophy and/or introspection.
 
 ## Some prelude
 
